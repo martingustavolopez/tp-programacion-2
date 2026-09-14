@@ -1,0 +1,96 @@
+@startuml
+
+title Diagrama de Clases - TP 2
+
+abstract class Pedido {
+    - diaSemana: string
+    - pedido: []
+    - estado: ESTADO_PEDIDO
+
+    + puedeFacturar(): boolean
+   
+
+}
+
+class PedidoSalon extends Pedido {
+    - mesaAsociada: number
+
+}
+
+class PedidoRetirar extends Pedido {
+    - horarioRetiro: number
+
+}
+
+class PedidoEnvio extends Pedido {
+    - direccion: string
+    - costoEnvio: number
+
+}
+
+class Producto {
+    - nombre: string
+    - precio: number
+    - estacion: ESTACION
+    - estado: ESTADO
+    - pedido: Pedido[]
+
+    + abstract agregarPedido(): void
+}
+
+class Combo extends Producto {
+
+}
+
+
+abstract class Estacion {
+    - pedido: Pedido[]
+
+    + preparPlato(p: Pedido): void
+
+}
+
+class Parrilla extends Estacion {
+
+}
+
+class CocinaFria extends Estacion {
+
+}
+
+class CocinaDulce extends Estacion {
+    
+}
+
+class Barra extends Estacion {
+    
+}
+
+
+enum ESTADO_PEDIDO {
+    EN_CONSTRUCCION,
+    LISTO
+}
+
+enum ESTADO_PRODUCTO {
+    PENDIENTE,
+    EN_PREPARACION,
+    LISTO
+}
+
+enum CATEGORIA {
+    ENTRADA,
+    PRINCIPAL,
+    BEBIDA,
+    POSTRE
+}
+
+enum DIA_SEMANA {
+    LUNES,
+    MARTES,
+    MIERCOLES,
+    JUEVES,
+    VIERNES,
+    SABADO,
+    DOMINGO
+}
