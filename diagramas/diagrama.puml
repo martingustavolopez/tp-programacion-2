@@ -3,67 +3,76 @@
 title Diagrama de Clases - TP 2
 
 abstract class Pedido {
-    - diaSemana: string
-    - pedido: []
-    - estado: ESTADO_PEDIDO
+    
+    diaSemana: string
+    items: Item[]
 
     + puedeFacturar(): boolean
-   
-
+    + estaElPedidoListo(): boolean
+    + sacarDelPedido(item: Item): void
 }
 
 class PedidoSalon extends Pedido {
-    - mesaAsociada: number
+    
+    esaAsociada: number
 
 }
 
 class PedidoRetirar extends Pedido {
-    - horarioRetiro: number
+    
+    horarioRetiro: number
 
 }
 
 class PedidoEnvio extends Pedido {
-    - direccion: string
-    - costoEnvio: number
+    
+    direccion: string
+    costoEnvio: number
 
 }
 
-class Producto {
-    - nombre: string
-    - precio: number
-    - estacion: ESTACION
-    - estado: ESTADO
-    - pedido: Pedido[]
+class itemPedido {
+    
+    estado: ESTADO_ITEM
+}
+
+interface Item {
+    + getPrecioFinal(): number
+    + estaListo(): boolean
+    + sePuedeCancelar(): boolean
+}
+
+class Producto implements Item {
+    
+    nombre: string
+    precio: number
+    estacion: ESTACION
+    estado: ESTADO_PEDIDO
 
     + abstract agregarPedido(): void
+    + getPrecioFinal(): number
+    + estaListo(): boolean
+    + sePuedeCancelar(): boolean
 }
 
-class Combo extends Producto {
+class Combo implements Item {
+    
+    productos: Producto[]
+    precioCombo: number
+    porcentajeDescuento: number
 
+    + getPrecioFinal(): number
+    + estaListo(): boolean
+    + sePuedeCancelar(): boolean
 }
 
 
-abstract class Estacion {
-    - pedido: Pedido[]
+class Estacion {
+    
+    pedido: Pedido[]
 
     + preparPlato(p: Pedido): void
 
-}
-
-class Parrilla extends Estacion {
-
-}
-
-class CocinaFria extends Estacion {
-
-}
-
-class CocinaDulce extends Estacion {
-    
-}
-
-class Barra extends Estacion {
-    
 }
 
 
@@ -72,7 +81,7 @@ enum ESTADO_PEDIDO {
     LISTO
 }
 
-enum ESTADO_PRODUCTO {
+enum ESTADO_ITEM {
     PENDIENTE,
     EN_PREPARACION,
     LISTO
