@@ -7,22 +7,22 @@ export default class Producto implements Item {
     protected estacion: ESTACION;
     protected estado: ESTADO_ITEM; 
 
-    constructor(nombre: string, precio: number, estacion: ESTACION, estado: ESTADO_PEDIDO) {
+    constructor(nombre: string, precio: number, estacion: ESTACION, estado: ESTADO_ITEM) {
         this.nombre = nombre;
         this.precio = precio;
         this.estacion = estacion;
         this.estado = estado;
     }
 
-    getPrecioFinal(){
-
+    getPrecioFinal() {
+        return this.precio;
     }
     
-    estaListo(){
-
+    estaListo() {
+        this.estado === ESTADO_ITEM.LISTO;
     }
 
-    sePuedeCancelar(){
+    sePuedeCancelar() {
 
     }
 
