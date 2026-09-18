@@ -24,15 +24,15 @@ export default abstract class Pedido {
     // .forEach() recorre todo, pero no se puede cortar en el medio.
     const todosListos = this.item.every((unItem) => unItem.estaListo());
     return todosListos;
-    
-    
   }
 
   estaElPedidoListo(): boolean {
+    
 
   }
 
   sacarDelPedido(item: Item): void {
+
     
   }
 
