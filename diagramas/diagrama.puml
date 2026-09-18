@@ -10,6 +10,8 @@ abstract class Pedido {
     + puedeFacturar(): boolean
     + estaElPedidoListo(): boolean
     + sacarDelPedido(item: Item): void
+    + agregarItem(item: Item): void
+    + confirmar(): void 
 }
 
 class PedidoSalon extends Pedido {
@@ -49,7 +51,7 @@ class Producto implements Item {
     estacion: ESTACION
     estado: ESTADO_PEDIDO
 
-    + abstract agregarPedido(): void
+
     + getPrecioFinal(): number
     + estaListo(): boolean
     + sePuedeCancelar(): boolean
