@@ -25,6 +25,6 @@
     }
  
      sePuedeCancelar(){
-         
+         return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem()
      }
     }
