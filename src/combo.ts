@@ -22,10 +22,17 @@ export default class Combo implements Item {
     }
      
     estaListo() {
-        //this.estado === ESTADO_ITEM.LISTO;
+        return Item.getEstadoItem() === ESTADO_ITEM.LISTO;
     }
  
+<<<<<<< HEAD
     sePuedeCancelar() {
         return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem()
     }
 }
+=======
+     sePuedeCancelar(){
+         return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem();
+     }
+    }
+>>>>>>> 71c9d2fcc806553f33d780b6996f926254507665
