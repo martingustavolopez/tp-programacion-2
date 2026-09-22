@@ -29,7 +29,6 @@ export default abstract class Pedido {
     return todosListos;
   }
     
-
   sacarDelPedido(): void {
     if (this.estadoPedido == ESTADO_PEDIDO.EN_CONSTRUCCION) {
       this.item.pop();
