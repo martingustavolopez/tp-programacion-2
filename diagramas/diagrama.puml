@@ -8,7 +8,6 @@ abstract class Pedido {
     items: Item[]
 
     + puedeFacturar(): boolean
-    + estaElPedidoListo(): boolean
     + sacarDelPedido(item: Item): void
     + agregarItem(item: Item): void
     + confirmar(): void 
@@ -49,7 +48,7 @@ class Producto implements Item {
     nombre: string
     precio: number
     estacion: ESTACION
-    estado: ESTADO_PEDIDO
+    estado: ESTADO_PEDIDO //Esto creo que no es necesario. Para que nos sirve saber el estado en el menu?
 
 
     + getPrecioFinal(): number
@@ -80,7 +79,7 @@ class Estacion {
 
 enum ESTADO_PEDIDO {
     EN_CONSTRUCCION,
-    LISTO
+    CONFIRMADO
 }
 
 enum ESTADO_ITEM {
