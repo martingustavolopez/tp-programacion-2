@@ -59,6 +59,7 @@ class Producto implements Item {
 class Combo implements Item {
     
     productos: Producto[]
+    nombreCombo: string
     precioCombo: number
     porcentajeDescuento: number
 
