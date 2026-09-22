@@ -23,7 +23,7 @@ export default class Producto implements Item {
     }
 
     sePuedeCancelar() {
-
+        return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem();
     }
 
 }

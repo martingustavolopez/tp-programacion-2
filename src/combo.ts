@@ -21,10 +21,10 @@
      }
      
     estaListo() {
-        //this.estado === ESTADO_ITEM.LISTO;
+        return Item.getEstadoItem() === ESTADO_ITEM.LISTO;
     }
  
      sePuedeCancelar(){
-         return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem()
+         return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem();
      }
     }
