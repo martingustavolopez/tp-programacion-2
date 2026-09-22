@@ -89,7 +89,7 @@ enum ESTADO_ITEM {
     LISTO
 }
 
-enum CATEGORIA {
+enum ESTACION {
     ENTRADA,
     PRINCIPAL,
     BEBIDA,

@@ -45,7 +45,6 @@ export default abstract class Pedido {
     else {
       throw new Error("El pedido no esta en Construccion");
     } 
-    
   }
   
   confirmar(): void {
