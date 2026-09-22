@@ -2,6 +2,13 @@
 
 title Diagrama de Clases - TP 2
 
+class Restaurante {
+
+    + crearCombo(): void
+    + crearPedido(): void
+    
+}
+
 abstract class Pedido {
     
     diaSemana: string
@@ -48,7 +55,7 @@ class Producto implements Item {
     nombre: string
     precio: number
     estacion: ESTACION
-    estado: ESTADO_PEDIDO //Esto creo que no es necesario. Para que nos sirve saber el estado en el menu?
+    estado: ESTADO_
 
 
     + getPrecioFinal(): number

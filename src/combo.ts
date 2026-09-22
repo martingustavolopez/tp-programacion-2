@@ -5,16 +5,18 @@ import { ESTADO_PEDIDO } from "./estado-pedido";
  
  
 export default class Combo implements Item {
-    protected productos: Producto[];
-    protected nombreCombo: string;
-    protected precioCombo: number | undefined;
-    protected porcentajeDescuento: number | undefined;
+    private productos: Producto[];
+    private nombreCombo: string;
+    private precioCombo: number | undefined;
+    private porcentajeDescuento: number | undefined;
+    private estado: ESTADO_ITEM;
  
     constructor(productos: Producto[], nombreCombo: string, precioCombo: number, porcentajeDescuento:number ) {
         this.productos =  productos;
         this.nombreCombo = nombreCombo;
         this.precioCombo = precioCombo;
         this.porcentajeDescuento = porcentajeDescuento;
+        this.estado = ESTADO_ITEM.EN_PREPARACION;
     }
  
     getPrecioFinal() {
@@ -22,10 +24,10 @@ export default class Combo implements Item {
     }
      
     estaListo() {
-        return Item.getEstadoItem() === ESTADO_ITEM.LISTO;
+        return this.estado === ESTADO_ITEM.LISTO;
     }
  
-     sePuedeCancelar(){
-         return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem();
-     }
+    sePuedeCancelar(): boolean {
+        return this.estado === ESTADO_ITEM.EN_PREPARACION;
     }
+}
