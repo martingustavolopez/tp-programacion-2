@@ -16,11 +16,12 @@ export default class Combo implements Item {
         this.nombreCombo = nombreCombo;
         this.precioCombo = precioCombo;
         this.porcentajeDescuento = porcentajeDescuento;
-        this.estado = ESTADO_ITEM.EN_PREPARACION;
+        this.estado = ESTADO_ITEM.PENDIENTE;
     }
  
     getPrecioFinal() {
         return this.productos.reduce((acumulador, productos) => acumulador + productos.getPrecioFinal(), 0);
+        // Hasta aca tenemos el precio total de los productos, falta aplicarle el descuento.
     }
      
     estaListo() {
@@ -28,6 +29,6 @@ export default class Combo implements Item {
     }
  
     sePuedeCancelar(): boolean {
-        return this.estado === ESTADO_ITEM.EN_PREPARACION;
+        return this.estado === ESTADO_ITEM.PENDIENTE;
     }
 }

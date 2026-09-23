@@ -6,13 +6,12 @@ class Restaurante {
 
     + crearCombo(): void
     + crearPedido(): void
-    
 }
 
 abstract class Pedido {
     
-    diaSemana: string
-    items: Item[]
+    - diaSemana: string
+    - items: Item[]
 
     + puedeFacturar(): boolean
     + sacarDelPedido(item: Item): void
@@ -22,26 +21,26 @@ abstract class Pedido {
 
 class PedidoSalon extends Pedido {
     
-    esaAsociada: number
+    - MesaAsociada: number
 
 }
 
 class PedidoRetirar extends Pedido {
     
-    horarioRetiro: number
+    - horarioRetiro: number
 
 }
 
 class PedidoEnvio extends Pedido {
     
-    direccion: string
-    costoEnvio: number
+    - direccion: string
+    - costoEnvio: number
 
 }
 
 class itemPedido {
     
-    estado: ESTADO_ITEM
+    - estado: ESTADO_ITEM
 }
 
 interface Item {
@@ -52,10 +51,10 @@ interface Item {
 
 class Producto implements Item {
     
-    nombre: string
-    precio: number
-    estacion: ESTACION
-    estado: ESTADO_
+    - nombre: string
+    - precio: number
+    - estacion: ESTACION
+    - estado: ESTADO_
 
 
     + getPrecioFinal(): number

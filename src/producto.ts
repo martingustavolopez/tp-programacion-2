@@ -9,11 +9,11 @@ export default class Producto implements Item {
     private estacion: ESTACION;
     private estado: ESTADO_ITEM; 
 
-    constructor(nombre: string, precio: number, estacion: ESTACION, estado: ESTADO_ITEM) {
+    constructor(nombre: string, precio: number, estacion: ESTACION) {
         this.nombre = nombre;
         this.precio = precio;
         this.estacion = estacion;
-        this.estado = estado;
+        this.estado = ESTADO_ITEM.PENDIENTE;
     }
 
     getPrecioFinal() {
@@ -24,8 +24,8 @@ export default class Producto implements Item {
         return this.estado === ESTADO_ITEM.LISTO;
     }
 
-    sePuedeCancelar() {
-        return ESTADO_ITEM.EN_PREPARACION === Item.getEstadoItem();
+    sePuedeCancelar(): boolean {
+        return this.estado === ESTADO_ITEM.PENDIENTE;
     }
 
 }
